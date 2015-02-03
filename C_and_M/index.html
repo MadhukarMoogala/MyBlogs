@@ -1,215 +1,222 @@
-﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Box Collector</title>
+    </head>
+<body>
+
     <style>
         #canvas {
-            display:block;
+            display: block;
             margin: 0 auto;
             background-color: bisque;
+            border: thick;
         }
     </style>
+    <canvas width="450" height="300" id="basecanvas"></canvas>
+    <form>
+        <input type="button" onclick="Start()" value="Click to See Game in Action !">
+        <input type="button" onclick="Stop()" value="Stop">
+    </form>
 
-</head>
-<body>
-  
-    <div id='d2' style="position:absolute; top:100px; left:400px; z-index:2">
-        <canvas width="640" height="480" id="basecanvas"></canvas>
-    </div>
-        
-        <script type="text/javascript">
-               
-            var canvas = document.getElementById("basecanvas");
-            var size = canvas.width / 40;
-            var context = canvas.getContext("2d");
-            var dx = 4, dy = 2;
-            context.font = "20px Georgia";
-            context.fillText("Use Arrow Keys", size, size);
-            context.strokeRect(0, 0, canvas.width, canvas.height);
-     
 
-            /*create a Box object with two methods draw and move*/
-            box = {
-                x: 200, y: 200,
-                key: 38,
-                fps:8,
-                score: -1,
-                start: function () {
-                    /* To be used if requestAnimateFrame isn't used*/
-                    //box.draw(box.x, box.y);
-                    box.fps = 8;
-                    food.draw();
-                },
-                mass : size,
-                drawScore: function () {
-                    context.fillStyle = '#999';
-                    context.font = (canvas.height) + 'px Impact, sans-serif';
-                    context.textAlign = 'center';
-                    context.fillText(box.score, canvas.width / 2, canvas.height * .9);
-                },
-                draw: function (x, y) {
+    <script type="text/javascript">
+        var isStop = isStop || false;
+        var canvas = document.getElementById("basecanvas");
+        var size = canvas.width / 40;
+        var context = canvas.getContext("2d");
+        var dx = 4, dy = 2;
 
-                    /*To confine box movement within Bounds*/
+        context.strokeRect(0, 0, canvas.width, canvas.height);
 
-                    if (x + box.mass / 2 >= canvas.width || x - box.mass / 2 <= 0)
-                    {
-                        x = (x + box.mass / 2 >= canvas.width) ? box.mass * 2 : canvas.width - box.mass * 2;
-                        box.x = x;
-                    }
-                    if (y + box.mass / 2 >= canvas.height || y - box.mass / 2 <= 0)
-                    {
-                        y = (y + box.mass / 2 >= canvas.height) ? box.mass * 2 : canvas.height - box.mass * 2;
-                        box.y = y;
-                    }
 
-                    /*For colors :http://www.w3schools.com/tags/ref_colorpicker.asp */
-                    context.font = "20px Georgia";
-                    context.fillText("Use Arrow Keys", size, size);
-                    context.strokeRect(0, 0, canvas.width, canvas.height);
-                    context.fillStyle = '#CC0000';
-                    context.beginPath();
-                    /*positioning box at x,y*/
-                    context.moveTo(x - box.mass / 2, y - box.mass / 2);
-                    context.lineTo(x + box.mass / 2, y - box.mass / 2);
-                    context.lineTo(x + box.mass / 2, y + box.mass / 2);
-                    context.lineTo(x - box.mass / 2, y + box.mass / 2);
-                    context.closePath();
-                    context.fill();
-                    
+        /*create a Box object with two methods draw and move*/
+        box = {
+            x: 200, y: 200,
+            key: 38,
+            fps: 8,
+            score: -1,
+            start: function () {
+                /* To be used if requestAnimateFrame isn't used*/
+                //box.draw(box.x, box.y);
+                box.fps = 8;
+                food.draw();
+            },
+            mass: size,
+            drawScore: function () {
+                context.fillStyle = '#999';
+                context.font = (canvas.height) + 'px Impact, sans-serif';
+                context.textAlign = 'center';
+                context.fillText(box.score, canvas.width / 2, canvas.height * .9);
+            },
+            draw: function (x, y) {
 
-                },
-                move: function () {
+                /*To confine box movement within Bounds*/
 
-                    switch (box.key.toString()) {
-                        case '38':
-                            // box.clear();
-                            box.y -= size * 2;
+                if (x + box.mass / 2 >= canvas.width || x - box.mass / 2 <= 0) {
+                    x = (x + box.mass / 2 >= canvas.width) ? box.mass * 2 : canvas.width - box.mass * 2;
+                    box.x = x;
+                }
+                if (y + box.mass / 2 >= canvas.height || y - box.mass / 2 <= 0) {
+                    y = (y + box.mass / 2 >= canvas.height) ? box.mass * 2 : canvas.height - box.mass * 2;
+                    box.y = y;
+                }
 
-                            break;
-                        case '40':
-                            // box.clear();
-                            box.y += size * 2;
+                /*For colors :http://www.w3schools.com/tags/ref_colorpicker.asp */
 
-                            break;
-                        case '37':
-                            //box.clear();
-                            box.x -= size * 2;
+                context.strokeRect(0, 0, canvas.width, canvas.height);
+                context.fillStyle = '#CC0000';
+                context.beginPath();
+                /*positioning box at x,y*/
+                context.moveTo(x - box.mass / 2, y - box.mass / 2);
+                context.lineTo(x + box.mass / 2, y - box.mass / 2);
+                context.lineTo(x + box.mass / 2, y + box.mass / 2);
+                context.lineTo(x - box.mass / 2, y + box.mass / 2);
+                context.closePath();
+                context.fill();
 
-                            break;
-                        case '39':
-                            // box.clear();
-                            box.x += size * 2;
 
-                            break;
-                    }
-                    box.checkCapture();
-                },
-                
-                /*This we will use if requestAnimateFrame is n't used*/
-                clear: function () {
-                    context.clearRect(0, 0, canvas.width, canvas.height);
-                    context.font = "20px Georgia";
-                    context.fillText("Use Arrow Keys", size, size);
-                    context.strokeRect(0, 0, canvas.width, canvas.height);
-                },
-                reset: function () {
-                    context.clearRect(0, 0, canvas.width, canvas.height);
+            },
+            move: function () {
 
-                },
+                switch (box.key.toString()) {
+                    case '38':
+                        // box.clear();
+                        box.y -= size * 2;
+
+                        break;
+                    case '40':
+                        // box.clear();
+                        box.y += size * 2;
+
+                        break;
+                    case '37':
+                        //box.clear();
+                        box.x -= size * 2;
+
+                        break;
+                    case '39':
+                        // box.clear();
+                        box.x += size * 2;
+
+                        break;
+                }
+                box.checkCapture();
+            },
+
+            /*This we will use if requestAnimateFrame is n't used*/
+            clear: function () {
+                context.clearRect(0, 0, canvas.width, canvas.height);
+                context.font = "20px Georgia";
+                context.fillText("Use Arrow Keys", size, size);
+                context.strokeRect(0, 0, canvas.width, canvas.height);
+            },
+            reset: function () {
+                context.clearRect(0, 0, canvas.width, canvas.height);
+
+            },
 
             /**/
-                checkCapture: function () {
-                    if (box.x < food.x + food.size &&
-                        box.x + box.mass > food.x &&
-                        box.y < food.y + food.size &&
-                        box.mass + box.y > food.y) {
-                        food.set();
-                        box.score++;
-                        box.drawScore();
-                        return true;
+            checkCapture: function () {
+                if (box.x < food.x + food.size &&
+                    box.x + box.mass > food.x &&
+                    box.y < food.y + food.size &&
+                    box.mass + box.y > food.y) {
+                    food.set();
+                    box.score++;
+                    box.drawScore();
+                    return true;
 
-                      
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                    }
+
+                }
+                else {
+                    return false;
+                }
+            }
         };
 
-            food = {
-                x: 400,
-                y: 300,
-                size: null,
-                set:function()
-                {
-                    food.size = canvas.width/40;
-                    food.x = Math.ceil(Math.random() * canvas.width) ;
-                    food.y = Math.ceil(Math.random() * canvas.height);
+        food = {
+            x: 400,
+            y: 300,
+            size: null,
+            set: function () {
+                food.size = canvas.width / 40;
+                food.x = Math.ceil(Math.random() * canvas.width);
+                food.y = Math.ceil(Math.random() * canvas.height);
 
-                },
+            },
 
-                draw:function()
-                {
-                    food.size = canvas.width / 40;
-                    context.fillStyle = '#66FF33';
-                    context.beginPath();
-                    /*positioning box at x,y*/
-                    context.moveTo(food.x - food.size / 2, food.y - food.size / 2);
-                    context.lineTo(food.x + food.size / 2, food.y - food.size / 2);
-                    context.lineTo(food.x + food.size / 2, food.y + food.size / 2);
-                    context.lineTo(food.x - food.size / 2, food.y + food.size / 2);
-                    context.closePath();
-                    context.fill();
+            draw: function () {
+                food.size = canvas.width / 40;
+                context.fillStyle = '#66FF33';
+                context.beginPath();
+                /*positioning box at x,y*/
+                context.moveTo(food.x - food.size / 2, food.y - food.size / 2);
+                context.lineTo(food.x + food.size / 2, food.y - food.size / 2);
+                context.lineTo(food.x + food.size / 2, food.y + food.size / 2);
+                context.lineTo(food.x - food.size / 2, food.y + food.size / 2);
+                context.closePath();
+                context.fill();
 
-                }
+            }
 
-            };
-            /*up,down,left,right,start*/
-            var keys = [38, 40, 37, 39];
+        };
+        /*up,down,left,right,start*/
+        var keys = [38, 40, 37, 39];
 
-            /*
-                             Canvas  0,0 ------------>x
-                                     |
-                                     |
-                                     |
-                                     |
-                                     y
-            */
+        /*
+                         Canvas  0,0 ------------>x
+                                 |
+                                 |
+                                 |
+                                 |
+                                 y
+        */
 
-            addEventListener('keydown', function (e) {
-                if (keys.indexOf(e.keyCode) >= 0) {
-                    box.key = e.keyCode;
-                     /*if requestAnimationFrame not used*/
-                    //box.move();
-                }
-                else if (e.keyCode == '32') {
-                    /*This may not be used  if we are using requestAnimationFrame */
-                    box.start();
-                  
-                }
-                else;
+        addEventListener('keydown', function (e) {
+            if (keys.indexOf(e.keyCode) >= 0) {
+                /*To prevent default behavior ,i.e scrolling pages*/
+                e.preventDefault();
+                box.key = e.keyCode;
+                /*if requestAnimationFrame not used*/
+                //box.move();
+            }
+            else if (e.keyCode == '32') {
+                /*This may not be used  if we are using requestAnimationFrame */
+                box.start();
 
-            }, false);
-            var w = window;
-            requestAnimationFrame = w.requestAnimationFrame ||
-                                    w.webkitRequestAnimationFrame ||
-                                    w.msRequestAnimationFrame ||
-                                    w.mozRequestAnimationF;
+            }
+            else;
 
-            function loop() {
-                box.reset();
-                
-               box.move();
-               box.draw(box.x, box.y);
-               food.draw();
-                setTimeout(function () {
+        }, false);
+        var w = window;
+        requestAnimationFrame = w.requestAnimationFrame ||
+                                w.webkitRequestAnimationFrame ||
+                                w.msRequestAnimationFrame ||
+                                w.mozRequestAnimationF;
+
+        function loop() {
+            box.reset();
+
+            box.move();
+            box.draw(box.x, box.y);
+            food.draw();
+            setTimeout(function () {
+                if (isStop != true)
                     requestAnimationFrame(loop);
-                }, 1000 / box.fps);
-            };
+            }, 1000 / box.fps);
+        };
+
+
+
+        function Start() {
 
             requestAnimationFrame(loop);
-        </script>
+            isStop = false;
+        }
+        function Stop() {
+            isStop = true;
+        }
+    </script>
 
 
 </body>
