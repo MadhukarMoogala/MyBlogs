@@ -171,8 +171,8 @@
                                  |
                                  y
         */
-
-        addEventListener('keydown', function (e) {
+        var w = window;
+        var key_handlers = function (e) {
             if (keys.indexOf(e.keyCode) >= 0) {
                 /*To prevent default behavior ,i.e scrolling pages*/
                 e.preventDefault();
@@ -185,10 +185,9 @@
                 box.start();
 
             }
-            else;
-
-        }, false);
-        var w = window;
+        }
+        w.addEventListener('keydown', key_handlers,false);
+    
         requestAnimationFrame = w.requestAnimationFrame ||
                                 w.webkitRequestAnimationFrame ||
                                 w.msRequestAnimationFrame ||
@@ -215,6 +214,8 @@
         }
         function Stop() {
             isStop = true;
+            /*remove event , to restore key behavior*/
+            w.removeEventListener('keydown',key_handlers,false);
         }
     </script>
 
