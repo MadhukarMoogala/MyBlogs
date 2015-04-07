@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="BarsWorkspace">
+</Property><Property Name="Solution File" Value="C:\ObjectARXSamples\StatusBar\BarsWorkspace.sln">
+</Property><Property Name="Date" Value="19 March 2015">
+</Property><Property Name="Time" Value="10:26:17">
+</Property></Properties><Event ErrorLevel="0" Project="BarsWorkspace" Source="BarsWorkspace.vcproj" Description="Converting project file 'C:\ObjectARXSamples\StatusBar\BarsWorkspace.vcproj'.">
+</Event><Event ErrorLevel="1" Project="BarsWorkspace" Source="BarsWorkspace.vcproj" Description="This application has been updated to include settings related to the User Account Control (UAC) feature of Windows Vista. By default, when run on Windows Vista with UAC enabled, this application is marked to run with the same privileges as the process that launched it. This marking also disables the application from running with virtualization. You can change UAC related settings from the Property Pages of the project.">
+</Event><Event ErrorLevel="0" Project="BarsWorkspace" Source="..\..\inc\rxsdk_Releasecfg.vsprops" Description="Converting propertysheet file 'C:\inc\rxsdk_Releasecfg.vsprops' for configuration 'Release|Win32'.">
+</Event><Event ErrorLevel="2" Project="BarsWorkspace" Source="..\..\inc\rxsdk_Releasecfg.vsprops" Description="File 'C:\inc\rxsdk_Releasecfg.vsprops' was not found.">
+</Event><Event ErrorLevel="0" Project="BarsWorkspace" Source="..\..\inc\arx.vsprops" Description="Converting propertysheet file 'C:\inc\arx.vsprops' for configuration 'Release|Win32'.">
+</Event><Event ErrorLevel="2" Project="BarsWorkspace" Source="..\..\inc\arx.vsprops" Description="File 'C:\inc\arx.vsprops' was not found.">
+</Event><Event ErrorLevel="1" Project="BarsWorkspace" Source="BarsWorkspace.vcproj" Description="VCWebServiceProxyGeneratorTool is no longer supported. The tool has been removed from your project settings.">
+</Event><Event ErrorLevel="0" Project="BarsWorkspace" Source="BarsWorkspace.vcproj" Description="Web deployment to the local IIS server is no longer supported. The Web Deployment build tool has been removed from your project settings.">
+</Event><Event ErrorLevel="0" Project="BarsWorkspace" Source="..\..\inc\rxsdk_Releasecfg.vsprops" Description="Converting propertysheet file 'C:\inc\rxsdk_Releasecfg.vsprops' for configuration 'Release|x64'.">
+</Event><Event ErrorLevel="2" Project="BarsWorkspace" Source="..\..\inc\rxsdk_Releasecfg.vsprops" Description="File 'C:\inc\rxsdk_Releasecfg.vsprops' was not found.">
+</Event><Event ErrorLevel="0" Project="BarsWorkspace" Source="..\..\inc\arx.vsprops" Description="Converting propertysheet file 'C:\inc\arx.vsprops' for configuration 'Release|x64'.">
+</Event><Event ErrorLevel="2" Project="BarsWorkspace" Source="..\..\inc\arx.vsprops" Description="File 'C:\inc\arx.vsprops' was not found.">
+</Event><Event ErrorLevel="0" Project="BarsWorkspace" Source="..\..\inc\rxsdk_Debugcfg.vsprops" Description="Converting propertysheet file 'C:\inc\rxsdk_Debugcfg.vsprops' for configuration 'Debug|Win32'.">
+</Event><Event ErrorLevel="2" Project="BarsWorkspace" Source="..\..\inc\rxsdk_Debugcfg.vsprops" Description="File 'C:\inc\rxsdk_Debugcfg.vsprops' was not found.">
+</Event><Event ErrorLevel="0" Project="BarsWorkspace" Source="..\..\inc\arx.vsprops" Description="Converting propertysheet file 'C:\inc\arx.vsprops' for configuration 'Debug|Win32'.">
+</Event><Event ErrorLevel="2" Project="BarsWorkspace" Source="..\..\inc\arx.vsprops" Description="File 'C:\inc\arx.vsprops' was not found.">
+</Event><Event ErrorLevel="0" Project="BarsWorkspace" Source="..\..\inc\rxsdk_Debugcfg.vsprops" Description="Converting propertysheet file 'C:\inc\rxsdk_Debugcfg.vsprops' for configuration 'Debug|x64'.">
+</Event><Event ErrorLevel="2" Project="BarsWorkspace" Source="..\..\inc\rxsdk_Debugcfg.vsprops" Description="File 'C:\inc\rxsdk_Debugcfg.vsprops' was not found.">
+</Event><Event ErrorLevel="0" Project="BarsWorkspace" Source="..\..\inc\arx.vsprops" Description="Converting propertysheet file 'C:\inc\arx.vsprops' for configuration 'Debug|x64'.">
+</Event><Event ErrorLevel="2" Project="BarsWorkspace" Source="..\..\inc\arx.vsprops" Description="File 'C:\inc\arx.vsprops' was not found.">
+</Event><Event ErrorLevel="0" Project="BarsWorkspace" Source="BarsWorkspace.vcproj" Description="Done converting to new project file 'C:\ObjectARXSamples\StatusBar\BarsWorkspace.vcxproj'.">
+</Event><Event ErrorLevel="3" Project="BarsWorkspace" Source="BarsWorkspace.vcproj" Description="Converted">
+</Event></UpgradeLog>
