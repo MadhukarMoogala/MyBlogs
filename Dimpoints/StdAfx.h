@@ -1,13 +1,3 @@
-// SConHeaders.h
-//
-// This file includes headers and imports libs that are needed by all
-// ShipConstructor projects.
-//
-//----- This file is preprocessor symbol driven.
-//----- Define:
-//-----		_AFXDLL or SCON_MFC_SUPPORT to include and import MFC headers and libs.
-//-----		SCON_DATA_TOOLS_SUPPORT to import ARLDataTools libs.
-//-----     ...
 //
 // NOTE: This file is used to import libs into your project in the correct order.
 //       Make sure you keep this in mind when you edit this file. The correct order
