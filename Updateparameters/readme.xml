@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FilerSample</name>
+    </assembly>
+    <members>
+        <member name="T:filer.TestFiler">
+            <Summary>
+             How to update Parameters on entities  of in-memory database
+            </Summary>
+        </member>
+        <member name="M:filer.TestFiler.testDimUpdate">
+            <Summary>
+             How to update Parameters on entities  of in-memory database
+            </Summary>
+            
+        </member>
+        <member name="M:filer.TestFiler.GetVariableByName(Autodesk.AutoCAD.DatabaseServices.ObjectId,System.String,System.Boolean)">
+            <Summary>
+             Get Variable Name for Given variableId
+            </Summary>
+            
+        </member>
+        <member name="M:filer.TestFiler.SetVariableValue(Autodesk.AutoCAD.DatabaseServices.ObjectId,Autodesk.AutoCAD.DatabaseServices.ResultBuffer,System.String)">
+            <Summary>
+             Set Expression for Given variableId
+            </Summary>
+            
+        </member>
+    </members>
+</doc>
